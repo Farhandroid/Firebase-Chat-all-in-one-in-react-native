@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>D485195B-3458-43C0-84DC-2B28B7C76E54</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D485195B-3458-43C0-84DC-2B28B7C76E54.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>TestFirebase project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>TestFirebase</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project TestFirebase with scheme TestFirebase and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>599209035.54270196</real>
+			<key>timeStoppedRecording</key>
+			<real>599209039.81058204</real>
+			<key>title</key>
+			<string>Building project TestFirebase with scheme TestFirebase and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>D485195B-3458-43C0-84DC-2B28B7C76E54</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
