@@ -15,6 +15,9 @@ import {
 } from 'react-native';
 import firebase from 'firebase';
 import {StackActions, NavigationActions} from 'react-navigation';
+
+const CryptoJS = require('crypto-js');
+
 const resetAction = StackActions.reset({
   index: 0,
   actions: [NavigationActions.navigate({routeName: 'ShowAllConnectedUser'})],
@@ -44,13 +47,13 @@ export default class ChatScreen extends Component {
 
   componentWillUnmount() {
     // this.backHandler.remove();
-    var tasksRef = 'chatMessages/' + this.getChatUID().toString() + '/messageData/';
+    var tasksRef =
+      'chatMessages/' + this.getChatUID().toString() + '/messageData/';
     firebase
       .database()
       .ref(tasksRef)
       .off('value');
   }
-
 
   init = () => {
     if (!firebase.apps.length) {
@@ -101,7 +104,16 @@ export default class ChatScreen extends Component {
           if (child.key !== 'unsceneMessageData') {
             var temp = {};
             temp.messageId = child.val().messageUID;
-            temp.message = child.val().message;
+
+            let message = CryptoJS.AES.decrypt(
+              child.val().message.toString(),
+              'farhan',
+            );
+            var plaintext = message.toString(CryptoJS.enc.Utf8);
+            console.log('decrypted text', plaintext);
+
+            // temp.message = child.val().message;
+            temp.message = plaintext;
             if (
               child.val().messageSenderUserId.toString() ===
               this.state.messageSenderUserId.toString()
@@ -176,6 +188,10 @@ export default class ChatScreen extends Component {
     var messageUID = Math.floor(Math.random() * 10000000000000) + 1;
     var messageSenderUserId = this.state.messageSenderUserId;
     let chatUID = this.getChatUID();
+
+    let ciphertext = CryptoJS.AES.encrypt(message, 'farhan');
+    message = ciphertext.toString();
+    console.log('encrypted text', message);
 
     var messageDate = new Date().getDate(); //Current Date
     var hours = new Date().getHours(); //Current Hours
@@ -271,7 +287,6 @@ export default class ChatScreen extends Component {
             });
         }
       });
-
   };
 
   renderDate = date => {
